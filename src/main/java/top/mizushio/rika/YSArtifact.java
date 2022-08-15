@@ -364,6 +364,8 @@ public class YSArtifact {
         });
         System.out.println("第一步处理  剩余数量=" + junk.size());
         int beforeDispose = junk.size();
+        artifacts.removeAll(junk);
+        lockArtifact(artifacts);
 
         JSONArray junk1 = filterAndMake(junk, artifact -> {
             if (getArtifactFactor(artifact) == 0) return true;
